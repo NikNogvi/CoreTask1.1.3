@@ -11,22 +11,16 @@ public class Util {
 
     private Connection connection;
 
-    public Util() {
+    public Connection getConnection() {
         try {
-            
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             if (!connection.isClosed()) {
                 System.out.println("Соединение с БД установлено");
             }
-
         } catch (SQLException e) {
             System.out.println("Соединение с БД не установлено");
-            System.out.println(e.getMessage());
             e.printStackTrace();
         }
-    }
-
-    public Connection getConnection() {
         return connection;
     }
 }
